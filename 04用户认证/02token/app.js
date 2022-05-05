@@ -31,8 +31,9 @@ app.post('/api/login',(req,res)=>{
     const tokenStr=enjwt.sign(
         {username},
         secretKey,
-        {expiresIn:'10h'} //有效期，也可以把单位换成h（小时）
+        {expiresIn:'10h'} //有效期，也可以把单位换成s（秒）以便进行token期限测试
     )
+
     // 03 返回加密后的token
     res.send({
         status:200,
@@ -42,8 +43,8 @@ app.post('/api/login',(req,res)=>{
 })
 
 //2 验证用户
-// 通过req.auth可以获取到
 app.get('/admin/getInfo',(req,res)=>{
+    // 通过req.auth可以获取到token解析后的信息
     if(req.auth){
         res.send({
             status:200,

@@ -29,7 +29,7 @@
         })
       }).then(res=>res.json()).then(res=>{
         if (res.status === 200) {
-          // 验证通过后，将token保存在localstorage中
+          // 验证通过了，将token保存在localstorage中
           localStorage.setItem('token',res.token)
           location.href = `./index.html`
         } else {
