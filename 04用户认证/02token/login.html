@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录页面</title>
+</head>
+
+<body>
+  <!-- 登录表单 -->
+  <div>账号：<input id="username" /></div>
+  <div>密码：<input id="password" /></div>
+  <button id="submit">登陆</button>
+
+  <script>
+    document.getElementById('submit').addEventListener('click',(e)=>{
+      let username=document.getElementById('username').value
+      let password=document.getElementById('password').value
+
+      fetch('http://localhost:8080/api/login',{
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          username,
+          password
+        })
+      }).then(res=>res.json()).then(res=>{
+        if (res.status === 200) {
+          //为了方便 我把返回来的token通过查询参数的方式传递给index.html页面
+          location.href = `./index.html?token=${res.token}`
+        } else {
+          alert(res.msg)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

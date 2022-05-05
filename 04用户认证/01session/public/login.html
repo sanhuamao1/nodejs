@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录页面</title>
+</head>
+
+<body>
+  <!-- 登录表单 -->
+  <div>账号：<input id="username" /></div>
+  <div>密码：<input id="password" /></div>
+  <button id="submit">登陆</button>
+
+  <script>
+    let submit=document.getElementById('submit')
+    submit.addEventListener('click',(e)=>{
+      let username=document.getElementById('username').value
+      let password=document.getElementById('password').value
+
+      fetch('/api/login',{
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          username,
+          password
+        })
+      }).then(res=>res.json()).then(res=>{
+        if (res.status === 0) {
+          location.href = './index.html'
+        } else {
+          alert(res.msg)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

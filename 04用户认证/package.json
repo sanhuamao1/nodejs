@@ -1,0 +1,18 @@
+{
+  "name": "s",
+  "version": "1.0.0",
+  "description": "服务器端渲染\r - 有利于seo\r - session认证",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-jwt": "^7.6.2",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1"
+  }
+}

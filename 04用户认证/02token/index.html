@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后台主页</title>
+</head>
+
+<body>
+  <h1>首页</h1>
+  <p id="ptxt"></p>
+  <button id="btn">退出登录</button>
+  <script>
+    window.onload=function(){
+      //1 拿到传过来的token
+      let token=location.search.substring(7)
+      if(!token){
+        //2 当没有token时
+        alert('您尚未登录，请登录后再执行此操作！')
+        location.href = './login.html'
+      }else{
+        //3 当有token时，发送请求。由于fetch跨域起来很麻烦，所以我采用的是xhr
+        let xhr=new XMLHttpRequest()
+        xhr.open('GET','http://localhost:8080/admin/getInfo')
+        xhr.setRequestHeader("Authorization", "bearer "+ token)
+        xhr.send()
+        xhr.onload=function(){
+          let res=JSON.parse(this.response)
+          if(res.status=='200'){
+            document.getElementById('ptxt').innerHTML="欢迎您，"+res.data.username
+          }else{
+            alert(res.msg)
+          }
+        }
+      }
+    }
+
+    let btn=document.getElementById('btn')
+    btn.addEventListener('click',()=>{
+      location.href = './login.html'
+    })
+  </script>
+</body>
+
+</html>
