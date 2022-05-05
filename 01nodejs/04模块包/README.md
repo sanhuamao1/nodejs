@@ -1,5 +1,6 @@
-nodejs遵循的是CommonJS模块规范
 - demo01：时间格式化模块
+
+> nodejs遵循的是CommonJS模块规范，更多讯息可参考文章：https://juejin.cn/post/6844903778194292744
 
 ---
 
@@ -54,6 +55,8 @@ http://nodejs.cn/
 - 包必须以单独的目录单独存在
 - 顶级目录必须包含package.json与入口文件
 - keywords：指定搜索关键字
+
+
 步骤：
 1. https://www.npmjs.com/注册用户
 2. 终端登陆`npm login`：填写用户名、密码、邮箱
