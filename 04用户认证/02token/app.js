@@ -44,7 +44,6 @@ app.post('/api/login',(req,res)=>{
 //2 验证用户
 // 通过req.auth可以获取到
 app.get('/admin/getInfo',(req,res)=>{
-    console.log('ok',req.auth)
     if(req.auth){
         res.send({
             status:200,

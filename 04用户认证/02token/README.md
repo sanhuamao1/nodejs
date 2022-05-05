@@ -11,4 +11,4 @@ Authorization:Bearer <token>
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)：用户信息通过它生成jwt字符串
 - [express-jwt](https://www.npmjs.com/package/express-jwt)：将jwt还原成json对象
 2. 使用错误拦截中间件
-3. 在客户端中，将获取到的token传递出去。（这里是通过查询参数传递）
+3. 在客户端中，将获取到的token传递出去。（这里是通过localstorage）

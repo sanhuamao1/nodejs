@@ -29,8 +29,9 @@
         })
       }).then(res=>res.json()).then(res=>{
         if (res.status === 200) {
-          //为了方便 我把返回来的token通过查询参数的方式传递给index.html页面
-          location.href = `./index.html?token=${res.token}`
+          // 验证通过后，将token保存在localstorage中
+          localStorage.setItem('token',res.token)
+          location.href = `./index.html`
         } else {
           alert(res.msg)
         }

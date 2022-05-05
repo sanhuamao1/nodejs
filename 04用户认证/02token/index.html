@@ -14,7 +14,7 @@
   <script>
     window.onload=function(){
       //1 拿到传过来的token
-      let token=location.search.substring(7)
+      let token=localStorage.getItem('token')
       if(!token){
         //2 当没有token时
         alert('您尚未登录，请登录后再执行此操作！')
@@ -38,6 +38,7 @@
 
     let btn=document.getElementById('btn')
     btn.addEventListener('click',()=>{
+      localStorage.clear()
       location.href = './login.html'
     })
   </script>
