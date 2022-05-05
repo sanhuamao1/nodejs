@@ -39,7 +39,6 @@ app.post('/api/login',(req,res)=>{
     // 将用户信息保存在session中
     req.session.user=req.body
     req.session.islogin = true
-    console.log('denglu',req.session)
     res.send({status:0,msg:'登陆成功！'})
 })
 
