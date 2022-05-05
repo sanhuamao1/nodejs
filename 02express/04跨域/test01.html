@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch请求</title>
+</head>
+<body>
+    <button id="getbtn">get请求</button>
+    <button id="postbtn">post请求</button>
+    <script>
+        let getbtn=document.getElementById('getbtn')
+        let postbtn=document.getElementById('postbtn')
+
+        let name='lisa',age=20  
+        getbtn.addEventListener('click',(e)=>{
+            fetch(`http://localhost:8080/api/get?name=${name}&age=${age}`,{
+                method:'GET',
+            })
+        })
+        
+        // 注意：fetch需要自己设置header的Content-Type 否则无法读取json格式的请求体
+        postbtn.addEventListener('click',(e)=>{
+            fetch('http://localhost:8080/api/post',{
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                //将对象转为json格式
+                body:JSON.stringify({
+                    name,
+                    age
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch请求</title>
+</head>
+<body>
+    <button id="getbtn">get请求</button>
+    <button id="postbtn">post请求</button>
+    <script>
+        let getbtn=document.getElementById('getbtn')
+        let postbtn=document.getElementById('postbtn')
+
+        let name='lisa',age=20  
+        getbtn.addEventListener('click',(e)=>{
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', `http://localhost:8080/api/get?name=${name}&age=${age}`);
+            xhr.send();
+        })
+        
+        postbtn.addEventListener('click',(e)=>{
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', `http://localhost:8080/api/post`);
+            xhr.setRequestHeader("Content-Type", "application/json");   //发送json格式要设置请求头
+            xhr.send(
+                JSON.stringify({
+                    name,
+                    age
+                })
+            );
+        })
+
+    </script>
+</body>
+</html>

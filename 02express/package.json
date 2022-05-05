@@ -1,0 +1,15 @@
+{
+  "name": "02express",
+  "version": "1.0.0",
+  "description": "如果说jquery是基于浏览器内置API封装的框架，那么express就是基于nodejs内置API封装的框架。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
