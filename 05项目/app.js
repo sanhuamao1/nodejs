@@ -1,9 +1,9 @@
 const express=require('express')
 const app=express()
 
-
 //** 顺序很重要
 
+app.use('/uploads', express.static('./uploads'))
 
 // 处理错误信息与正确信息的全局中间件
 const {errmw,okmw}=require('./utils/msg')
@@ -24,8 +24,14 @@ app.use(express.urlencoded({extended:false}))
 // 配置路由
 const userRouter=require('./router/user')
 const infoRouter=require('./router/info')
+const sortRouter=require('./router/artsort')
+const artRouter=require('./router/article')
 app.use('/api',userRouter)
 app.use('/my',infoRouter)
+app.use('/article',sortRouter)
+app.use('/article',artRouter)
+
+
 
 
 // 捕获验证错误的中间件

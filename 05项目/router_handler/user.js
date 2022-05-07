@@ -10,7 +10,7 @@ const config = require('../config')
 const db=require('../db/index')
 
 //使用到的sql语句
-userSql={
+let userSql={
     search:'select * from e_users where username=?', //查询用户是否存在
     insert:'insert into e_users set ?',             //向e_users表中插入新用户
 }

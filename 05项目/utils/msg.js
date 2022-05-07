@@ -9,7 +9,7 @@ const errmw=(req,res,next)=>{
 }
 
 const okmw=(req,res,next)=>{
-    res.ok=function(msg,data,status=200){
+    res.ok=function(msg='ok',data,status=200){
         res.send({
             status,
             msg,

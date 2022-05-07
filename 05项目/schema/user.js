@@ -12,8 +12,6 @@ const password=joi
     .required()
 // - [\S](6,12)：6-12位非空字符
 
-
-
 const id=joi
     .number()
     .integer()
@@ -21,9 +19,16 @@ const id=joi
     .required()
 const nickname=joi
     .string()
+    .required()
 const email=joi
     .string()
     .email()
+    .required()
+
+const avatar=joi
+    .string()
+    .dataUri()
+    .required()
 
 
 
@@ -54,3 +59,10 @@ exports.update_password_schema={
         newPwd:joi.not(joi.ref('oldPwd')).concat(password),
     }
 }
+
+exports.update_avatar_schema={
+    body:{
+        avatar
+    }
+}
+
